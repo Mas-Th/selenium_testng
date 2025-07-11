@@ -1,4 +1,4 @@
-package part2.demoqa.test.part3.checkboxes;
+package part2.demoqa.test.elements.checkboxes;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;

@@ -40,7 +40,7 @@ public class BaseTest {
     @BeforeMethod
     public void loadApplication(){
         driver.get(URL);
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(6));
         wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("body")));
 
         basePage = new BasePage();
