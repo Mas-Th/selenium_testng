@@ -1,45 +1,114 @@
 package part2.demoqa.pages.forms;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 import static utilities.JavascriptUtility.*;
 
 public class PracticeFormsPage extends FormPage  {
 
     // method 1 using clickJS();
-    private  By inputRadioGender = By.id("gender-radio-1");
+    public  By inputRadioGender = By.id("gender-radio-1");
     // method 2 using label for input
     //    By labelInputRender = By.xpath("//label[text()='Male']");
 
-    private By  sportCheckBoxHobby = By.id("hobbies-checkbox-1");
-    private By  readingCheckBoxHobby = By.id("hobbies-checkbox-2");
-    private By  musicCheckBoxHobby = By.id("hobbies-checkbox-3");
+    public By  sportCheckBoxHobby = By.id("hobbies-checkbox-1");
+    public By  readingCheckBoxHobby = By.id("hobbies-checkbox-2");
+    public By  musicCheckBoxHobby = By.id("hobbies-checkbox-3");
+
+    public By firstName = By.id("firstName");
+    public By lastName = By.id("lastName");
+    public By userEmail = By.id("userEmail");
+
+    public By userNumber = By.id("userNumber");
+    public By userDate = By.id("dateOfBirthInput");
+    public By subjectsInput = By.id("subjectsInput");
+
+    public By uploadPicture = By.id("uploadPicture");
+    public By currentAddress = By.id("currentAddress");
+
+    public By clickDropdown1 = By.xpath("//form[@id='userForm']//div[@id='city']");
+    public By clickDropdown2 = By.xpath("//form[@id='userForm']//div[@id='state']");
+
+    public By dropdownText1 = By.id("react-select-3-input");
+    public By dropdownText2 = By.id("react-select-4-input");
 
 
-//    private By firstName = By.id("firstName");
-//    private By lastName = By.id("lastName");
-//    private By userEmail = By.id("userEmail");
-//
-//
-//
-//    private By userNumber = By.id("userNumber");
-//    private By userDate = By.id("dateOfBirthInput");
-//    private By subjectsInput = By.id("subjectsInput");
 
-//
-//    private By uploadPicture = By.id("uploadPicture");
-//    private By currentAddress = By.id("currentAddress");
-//
-//    private By btnSubmit = By.id("submit");
+    public By btnSubmit = By.id("submit");
 
+
+    WebElement eFirstName = find(firstName);
+    WebElement eLastName = find(lastName);
+    WebElement eUserEmail = find(userEmail);
+    WebElement eUserNumber = find(userNumber);
+    WebElement eCurrentAddress = find(currentAddress);
+    WebElement eUserDate = find(userDate);
+    WebElement eUploadPicture = find(uploadPicture);
+    WebElement eSubjectsInput = find(subjectsInput);
+
+    public void enterPracticeForm(){
+        // Nếu field bị readonly
+        // ((JavascriptExecutor)driver).executeScript("arguments[0].removeAttribute('readonly')", eUserDate);
+
+        eFirstName.clear();
+        eFirstName.sendKeys("thieu");
+
+        eLastName.clear();
+        eLastName.sendKeys("nguyen van");
+
+        eUserEmail.clear();
+        eUserEmail.sendKeys("thieunv@gmail.com");
+
+        eUserNumber.clear();
+        eUserNumber.sendKeys("123456");
+
+        eCurrentAddress.clear();
+        eCurrentAddress.sendKeys("yendinh thanh hoa");
+
+        eSubjectsInput.clear();
+        eSubjectsInput.sendKeys("issuer");
+
+        eUploadPicture.clear();
+        eUploadPicture.sendKeys("D:\\Picture\\myPicture.jpg");
+
+        eUserDate.clear();
+        eUserDate.sendKeys("01-12-1996");
+
+
+
+        clickJS(inputRadioGender);
+        clickJS(readingCheckBoxHobby);
+        clickJS(musicCheckBoxHobby);
+
+        scrollToElementJs(btnSubmit);
+        clickJS(btnSubmit);
+    }
+
+
+    // click btn submit
+    public void clickBtnSubmit(){
+        scrollToElementJs(btnSubmit);
+        clickJS(btnSubmit);
+    }
+
+
+    // click select input
+    public void clickInputPracticeForm(){
+        clickJS(inputRadioGender);
+        clickJS(inputRadioGender);
+        clickJS(readingCheckBoxHobby);
+        clickJS(musicCheckBoxHobby);
+        clickJS(clickDropdown1);
+        clickJS(clickDropdown2);
+    }
 
     // click gender
-    public void clickinputRadioGender(){
+    public void clickInputRadioGender(){
         scrollToElementJs(inputRadioGender);
         clickJS(inputRadioGender);
-
     }
-    
+
     // click checkbox sport
     public void clickCheckBoxSport(){
         if(!find(sportCheckBoxHobby).isSelected()){
@@ -84,5 +153,5 @@ public class PracticeFormsPage extends FormPage  {
         return find(inputRadioGender).isSelected();
 
     }
-    
+
 }

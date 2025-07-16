@@ -48,6 +48,7 @@ public class TablePage extends ElementPage {
         click(btnSearchRecord);
 
     }
+
     public void clickSelectRows(){
         Select eSelectedRows = new Select(driver.findElement(selectedRows));
         scrollToElementJs(selectedRows);

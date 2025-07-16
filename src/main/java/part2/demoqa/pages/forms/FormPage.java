@@ -1,7 +1,6 @@
 package part2.demoqa.pages.forms;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import part2.demoqa.pages.HomePage;
 
 public class FormPage extends HomePage {
@@ -12,8 +11,6 @@ public class FormPage extends HomePage {
         click(practiceForms);
         return new PracticeFormsPage();
     }
-
-
 
 
 

@@ -11,10 +11,10 @@ public class LinkPage extends ElementPage {
     private By linkResponse = By.id("linkResponse");
 
 
-    public HomePage clickHomeLink() throws InterruptedException {
+    public void clickHomeLink() throws InterruptedException {
         click(clickHome);
         delay(1000);
-        return new HomePage();
+        new HomePage();
 
     }
 
