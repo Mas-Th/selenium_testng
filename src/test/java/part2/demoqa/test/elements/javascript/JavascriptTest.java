@@ -1,4 +1,4 @@
-package part2.demoqa.test.elements.javascript;
+package javascript;
 
 
 

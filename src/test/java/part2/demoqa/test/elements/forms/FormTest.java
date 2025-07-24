@@ -1,4 +1,4 @@
-package part2.demoqa.test.elements.forms;
+package forms;
 
 
 import org.openqa.selenium.By;
@@ -52,7 +52,7 @@ public class FormTest extends BaseTest {
     }
 
     @Test
-    public void testPacticeForm() {
+    public void testPracticeForm() {
 
         var practiceFormsPage = homePage.goToFormPage().clickPracticeForms();
 
@@ -86,10 +86,16 @@ public class FormTest extends BaseTest {
         eUserNumber.sendKeys("1234564534534");
 
         eCurrentAddress.clear();
-        eCurrentAddress.sendKeys("yendinh thanh hoa");
+        eCurrentAddress.sendKeys("yen dinh thanh hoa");
 
         eSubjectsInput.clear();
         eSubjectsInput.sendKeys("English");
+        eSubjectsInput.sendKeys(Keys.ENTER);
+
+        eSubjectsInput.sendKeys("Math");
+        eSubjectsInput.sendKeys(Keys.ENTER);
+
+        eSubjectsInput.sendKeys("Chemistry");
         eSubjectsInput.sendKeys(Keys.ENTER);
 
         eUploadPicture.clear();

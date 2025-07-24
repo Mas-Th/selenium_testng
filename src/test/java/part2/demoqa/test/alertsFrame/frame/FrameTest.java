@@ -54,6 +54,7 @@ public class FrameTest extends BaseTest {
     public void testFrame2Index(){
         var frameForm = homePage.goToAlertFrameWindowPage();
         var frameSwitch = frameForm.clickFrame();
+        // [0] index start
         String actualSmallFrameText = frameSwitch.getTextSmallFrameIndex(2);
         String expectedSmallFrameText = "This is a sample page";
 

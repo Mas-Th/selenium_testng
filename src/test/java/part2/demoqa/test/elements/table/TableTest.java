@@ -1,4 +1,4 @@
-package part2.demoqa.test.elements.table;
+package table;
 
 import org.testng.annotations.Test;
 import part2.demoqa.base.BaseTest;

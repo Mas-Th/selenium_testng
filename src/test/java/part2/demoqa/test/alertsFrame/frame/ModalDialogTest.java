@@ -1,4 +1,4 @@
-package part2.demoqa.test.alertsFrame.frame;
+package frame;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;

@@ -1,6 +1,6 @@
 package part2.demoqa.pages.alertsFrame.alerts;
 
-import base.BasePage;
+
 import org.openqa.selenium.By;
 import part2.demoqa.pages.HomePage;
 

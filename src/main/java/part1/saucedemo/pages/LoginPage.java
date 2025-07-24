@@ -12,11 +12,11 @@ public class LoginPage extends BasePage {
 
 
     public void setUsername(String username){
-        set(usernameField, username);
+        setText(usernameField, username);
     }
 
     public void setPassword(String password) {
-        set(passwordField, password);
+        setText(passwordField, password);
     }
 
     public ProductPage clickLoginButton() {

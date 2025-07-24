@@ -47,44 +47,6 @@ public class PracticeFormsPage extends FormPage  {
     WebElement eUploadPicture = find(uploadPicture);
     WebElement eSubjectsInput = find(subjectsInput);
 
-    public void enterPracticeForm(){
-        // Nếu field bị readonly
-        // ((JavascriptExecutor)driver).executeScript("arguments[0].removeAttribute('readonly')", eUserDate);
-
-        eFirstName.clear();
-        eFirstName.sendKeys("thieu");
-
-        eLastName.clear();
-        eLastName.sendKeys("nguyen van");
-
-        eUserEmail.clear();
-        eUserEmail.sendKeys("thieunv@gmail.com");
-
-        eUserNumber.clear();
-        eUserNumber.sendKeys("123456");
-
-        eCurrentAddress.clear();
-        eCurrentAddress.sendKeys("yendinh thanh hoa");
-
-        eSubjectsInput.clear();
-        eSubjectsInput.sendKeys("issuer");
-
-        eUploadPicture.clear();
-        eUploadPicture.sendKeys("D:\\Picture\\myPicture.jpg");
-
-        eUserDate.clear();
-        eUserDate.sendKeys("01-12-1996");
-
-
-
-        clickJS(inputRadioGender);
-        clickJS(readingCheckBoxHobby);
-        clickJS(musicCheckBoxHobby);
-
-        scrollToElementJs(btnSubmit);
-        clickJS(btnSubmit);
-    }
-
 
     // click btn submit
     public void clickBtnSubmit(){
@@ -99,8 +61,10 @@ public class PracticeFormsPage extends FormPage  {
         clickJS(inputRadioGender);
         clickJS(readingCheckBoxHobby);
         clickJS(musicCheckBoxHobby);
+        clickJS(userDate);
         clickJS(clickDropdown1);
         clickJS(clickDropdown2);
+
     }
 
     // click gender

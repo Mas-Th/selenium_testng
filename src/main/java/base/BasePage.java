@@ -15,18 +15,30 @@ public class BasePage {
         return driver.findElement(locator);
     }
 
-    protected void set(By locator, String text) {
-        find(locator).sendKeys(text);
+    protected void setText(By locator, String text) {
         find(locator).clear();
+        find(locator).sendKeys(text);
+    }
+
+    protected String getText(By locator){
+        return find(locator).getText();
+    }
+
+    protected boolean isDisplayed(By locator){
+        try {
+            return find(locator).isDisplayed();
+        } catch (Exception ex){
+            return false;
+        }
     }
 
     protected void click(By locator) {
         find(locator).click();
     }
 
-    public static void delay(int miliseconds) throws InterruptedException {
+    public static void delay(int milliseconds) throws InterruptedException {
         try{
-            Thread.sleep(miliseconds);
+            Thread.sleep(milliseconds);
         } catch (InterruptedException ex) {
             ex.printStackTrace();
         }

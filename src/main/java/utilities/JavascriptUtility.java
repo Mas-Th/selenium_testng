@@ -8,14 +8,8 @@ import org.openqa.selenium.WebElement;
 public class JavascriptUtility extends Utility {
 
     /**
-     * Cuộn trang (scroll) để đưa phần tử chỉ định vào trong khung nhìn (viewport) của trình duyệt.
-     * <p>
-     * Phương thức này sử dụng JavaScript để thực hiện cuộn đến phần tử, phù hợp trong các trường hợp:
-     * - Phần tử nằm ngoài vùng hiển thị và không thể tương tác trực tiếp.
-     * - Cần xử lý scroll chính xác trong các trang có nội dung động, lazy-loading, hoặc bị che khuất.
-     * </p>
      *
-     * @param locator Đối tượng {@link By} đại diện cho phần tử cần scroll tới.
+     * @param locator scroll
      */
     public static void scrollToElementJs(By locator) {
         WebElement element = driver.findElement(locator);
@@ -27,11 +21,23 @@ public class JavascriptUtility extends Utility {
         // Scroll thêm xuống 60px
         js.executeScript("window.scrollBy(0, -80);");
     }
-
+    // click element DOM
     public static void clickJS(By locator){
         WebElement element = driver.findElement(locator);
-        JavascriptExecutor executor = (JavascriptExecutor)  driver;
+        JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].click()", element);
+    }
+
+    // highlight element DOM
+    public static void highlight(By locator){
+        WebElement element = driver.findElement(locator);
+        JavascriptExecutor executor = (JavascriptExecutor) driver;
+        for (int i = 0; i < 2; i++) {
+            executor.executeScript("arguments[0].style.border='3px solid red'", element);
+            try { Thread.sleep(300); } catch (InterruptedException e) {}
+            executor.executeScript("arguments[0].style.border=''", element);
+        }
+
     }
 
 

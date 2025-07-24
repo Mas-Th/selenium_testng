@@ -38,8 +38,8 @@ public class BaseTest {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
     }
 
     @BeforeMethod
@@ -68,8 +68,15 @@ public class BaseTest {
 
     @AfterClass
     public void tearDown() throws InterruptedException {
-        delay(3000);
-        if(driver != null){
+        boolean isDebug = Boolean.parseBoolean(System.getProperty("debug", "false"));
+        if (isDebug) delay(3000);
+
+        if (driver != null) {
+            // Close all opened windows/tabs before quitting
+            for (String handle : driver.getWindowHandles()) {
+                driver.switchTo().window(handle);
+                driver.close();
+            }
             driver.quit();
         }
     }

@@ -1,8 +1,10 @@
 package part2.demoqa.utility;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.*;
 
 import java.time.Duration;
 
@@ -97,6 +99,29 @@ public class WaitElement {
         new WebDriverWait(driver, Duration.ofSeconds(2))
                 .until(driver -> driver.findElement(locator).getCssValue(cssProperty).equals(expectedValue));
     }
+
+
+    public ExpectedCondition<Boolean> elementHasText(By locator, String expectedText){
+        return driver -> {
+            assert driver != null;
+            return driver.findElement(locator).getText().equals(expectedText);
+        };
+    }
+
+    // Fluent wait detail
+    public WebElement waitWithFluent(By locator) {
+        Wait<WebDriver> wait = new FluentWait<>(driver)
+                .withTimeout(Duration.ofSeconds(10))
+                .pollingEvery(Duration.ofMillis(500))
+                .ignoring(NoSuchElementException.class);
+
+
+        return wait.until( driver -> {
+            WebElement el = driver.findElement(locator);
+            return el.isDisplayed() ? el : null;
+        });
+    }
+
 }
 
 

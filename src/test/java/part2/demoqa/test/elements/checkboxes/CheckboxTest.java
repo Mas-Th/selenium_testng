@@ -1,4 +1,4 @@
-package part2.demoqa.test.elements.checkboxes;
+package checkboxes;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -17,7 +17,7 @@ public class CheckboxTest extends BaseTest {
 
     boolean isSelectedReadCheckbox = formPage.isInputCheckBoxSelected();
 
-        Assert.assertTrue(!isSelectedReadCheckbox, "Checkbox read is Selected");
+        Assert.assertFalse(isSelectedReadCheckbox, "Checkbox read is Selected");
 
     }
 }

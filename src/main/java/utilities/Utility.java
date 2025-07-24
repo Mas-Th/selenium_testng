@@ -8,8 +8,5 @@ public class Utility {
     public static void setUtilityDriver() {
         driver = BasePage.driver;
     }
-
     // Generate A random Number
-
-
 }
