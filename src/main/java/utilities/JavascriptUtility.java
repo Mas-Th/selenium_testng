@@ -28,6 +28,11 @@ public class JavascriptUtility extends Utility {
         executor.executeScript("arguments[0].click()", element);
     }
 
+    public static void clickReload(){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("location,reload()");
+    }
+
     // highlight element DOM
     public static void highlight(By locator){
         WebElement element = driver.findElement(locator);

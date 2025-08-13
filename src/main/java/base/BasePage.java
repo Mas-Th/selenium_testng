@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.time.Duration;
+
 public class BasePage {
     public static WebDriver driver;
 
@@ -20,7 +22,7 @@ public class BasePage {
         find(locator).sendKeys(text);
     }
 
-    protected String getText(By locator){
+    public String getText(By locator){
         return find(locator).getText();
     }
 
@@ -44,5 +46,9 @@ public class BasePage {
         }
 
 
+    }
+
+    public void delay(long x) throws InterruptedException {
+        Thread.sleep(x);
     }
 }

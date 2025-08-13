@@ -1,0 +1,7 @@
+testcase_id,precondition,username,password,expected_result,expected_message
+TC01,User is registered,standard_user,secret_sauce,success,Login successful
+TC02,User is locked out,locked_out_user,secret_sauce,fail,User is locked out
+TC03,User is registered,problem_user,secret_sauce,success,Login successful (may load with issues)
+TC04,User is registered,performance_glitch_user,secret_sauce,success,Login successful (slow performance)
+TC05,User is registered,error_user,secret_sauce,fail,Login failed due to server error
+TC06,User is registered,visual_user,secret_sauce,success,Login successful (visual differences may appear)
